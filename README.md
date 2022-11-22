@@ -1,0 +1,4 @@
+- git submodule init
+- git apply --directory=src/readability --stat ./src/0001-data-nodeValue-API-to-comply-with-domino.patch
+- git apply --directory=src/readability --apply ./src/0001-data-nodeValue-API-to-comply-with-domino.patch
+- npm test

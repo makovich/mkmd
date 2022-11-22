@@ -1,0 +1,57 @@
+From e97e768883470df8b6434b704372e53987f56ca2 Mon Sep 17 00:00:00 2001
+From: paul <paul@makovi.ch>
+Date: Tue, 22 Nov 2022 18:44:58 +0300
+Subject: [PATCH] data()/nodeValue() API to comply with `domino`
+
+---
+ JSDOMParser.js | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/JSDOMParser.js b/JSDOMParser.js
+index 7bfa2ac..de33387 100644
+--- a/JSDOMParser.js
++++ b/JSDOMParser.js
+@@ -521,10 +521,11 @@
+   Text.prototype = {
+     __proto__: Node.prototype,
+ 
+     nodeName: "#text",
+     nodeType: Node.TEXT_NODE,
++
+     get textContent() {
+       if (typeof this._textContent === "undefined") {
+         this._textContent = decodeHTML(this._innerHTML || "");
+       }
+       return this._textContent;
+@@ -533,19 +534,28 @@
+       if (typeof this._innerHTML === "undefined") {
+         this._innerHTML = encodeTextContentHTML(this._textContent || "");
+       }
+       return this._innerHTML;
+     },
++    get data() {
++      return this.textContent;
++    },
++    get nodeValue() {
++      return this.textContent;
++    },
+ 
+     set innerHTML(newHTML) {
+       this._innerHTML = newHTML;
+       delete this._textContent;
+     },
+     set textContent(newText) {
+       this._textContent = newText;
+       delete this._innerHTML;
+     },
++    set data(newText) {
++      this.textContent = newText;
++    }
+   };
+ 
+   var Document = function (url) {
+     this.documentURI = url;
+     this.styleSheets = [];
+-- 
+2.33.1
+
