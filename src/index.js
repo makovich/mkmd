@@ -1,6 +1,6 @@
-// JSDOMParser isn't fully tolerant to syntax errors parser.
-// It only understands valid XML input so the need
-// to wrap any of it with html2xhtml helper function.
+// JSDOMParser isn't fully tolerant to syntax errors.
+// It only understands valid XML so the need
+// to wrap any of it input with html2xhtml helper function.
 const parser = require('parse5');
 const xmlser = require('xmlserializer');
 const html2xhtml = html => xmlser.serializeToString(parser.parse(html));
@@ -16,3 +16,5 @@ window.DOMParser.prototype.parseFromString = function(html) {
 };
 
 const TurndownSvc = require("turndown");
+
+console.log("Bundle is loaded")

@@ -2,8 +2,30 @@
 name = "mkmd"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "Make Markdown from HTML web page"
+readme = "README.md"
+categories = ["command-line-utilities"]
+repository = "https://github.com/makovich/mkmd"
+homepage = "https://github.com/makovich/mkmd"
+keywords = [
+    "download",
+    "html",
+    "markdown",
+    "archive",
+    "tool",
+]
+authors = ["paul makovich <paul@makovi.ch>"]
+license = "MIT OR Unlicense"
 
 [dependencies]
 quick-js = "0.4.1"
+easy-parallel = "3.2.0"
+minreq = { version = "2.6", features = ["https"] }
+base64 = "0.13.1"
+once_cell = "1.16.0"
+url = "2.3"
+atty = "0.2.14"
+structopt = "0.3"
+anyhow = "1.0"
+mime_guess = "2.0.4"
+human-panic = "1.0.3"

@@ -11078,3 +11078,4 @@ window.DOMParser.prototype.parseFromString = function(html) {
   return html == "" ? true : new JSDOMParser().parse(html2xhtml(html));
 };
 var TurndownSvc = require_turndown_cjs();
+console.log("Bundle is loaded");

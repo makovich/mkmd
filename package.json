@@ -1,14 +1,9 @@
 {
   "name": "mkmd",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "node src/smoke-test.js",
     "bundle": "esbuild src/index.js --outfile=src/bundle.js --bundle --tree-shaking=true --platform=node --external:domino --external:std"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "parse5": "^7.1.2",
     "turndown": "^7.1.1",
